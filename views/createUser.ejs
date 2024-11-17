@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="css/createUser.css">
+</head>
+<body>
+    <div class="create-user-container">
+        <h2>Create Your Account</h2>
+        <p>Enter your details to get started with the chat</p>
+        <form action="/signup" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" onclick="loginUser()">Create Account</button>
+            <a href ="/login">Login</a>
+        </form>
+    </div>
+</body>
+</html>

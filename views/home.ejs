@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for Contacts -->
+        <div class="sidebar">
+            <h2>Contacts</h2>
+            <ul>
+                <% withOutUser.forEach((eachUser) => { %>
+                    <li id="<%= eachUser._id %>" onclick="createChat('<%= eachUser._id %>','<%= eachUser.username %>')"><%= eachUser.username %></li> 
+                <% }) %>
+                <!-- Add more contacts as needed -->
+            </ul>       
+            <ul id="allGroups" class="allGroups">
+            </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-area" id="chat-area">
+            <h2>Chat</h2>
+            <button class="loginUsername"><%= loginUser.username %></button>
+            <button class="groups" id="groups">Groups</button>
+            <button class="createGpBtn" id="createGpBtn">CreateGroup</button>
+            <div class="group-create-container" id="group-create-container">
+                <div class="inputBtn">
+                <input type="text" id="groupNameInput" class="groupNameInput" placeholder="Enter Group Name">
+                <button id="finalCreateBtn" class="finalCreateBtn">Create</button>
+                <button id="closs" class="closs">Close</button>
+                </div>
+              <ul id="userList">
+                <% withOutUser.forEach((eachUser) => { %>
+                    <li id="<%= eachUser._id %>" onclick="groupdetails('<%= eachUser._id %>','<%= eachUser.username %>')"><%= eachUser.username %></li> 
+                <% }) %>
+              </ul>
+            </div>
+            <button class="logout-btn"><a href="/logout">Logout</a></button>
+            <h5 class="receiverName" id="receiverName"> </h5>
+            
+            <div class="chat-box-div">
+            <ul id="chatBox">
+
+            </ul>
+            </div>
+            
+                <!-- Add more messages as needed -->
+            
+            <div class="message-input">
+                <input type="text" id="sendMsg" class="sendMsg" placeholder="Type a message...">
+                <button id="sentBtn" class="sentBtn">Send</button>
+            </div>
+            <div class="message-input">
+                <input type="text" id="gpsendMsg" class="sendMsg" placeholder="Type a message...">
+                <button id="gpsentBtn" class="sentBtn">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"> </script>
+    <script src ="js/home.js"></script>
+</body>
+</html>

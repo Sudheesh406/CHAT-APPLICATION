@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #075e54;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    font-size: 1.em;
+    color: #333;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.logout-btn{
+    position: absolute;
+    right: 10px;
+    top :18px;
+    font-size: 0.9em;
+    background-color: #075e54;
+    border: transparent;
+    font-weight: 700;
+    color: #fff;
+}
+
+.chat-area h2 {
+    background-color: #075e54;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.chat-box-div {
+    flex: 1;
+    background-color: #e5ddd5;  
+}
+
+.chat-box.ul{
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #e5ddd5; 
+    list-style: none;
+    display: none;
+}
+
+.message {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.received {
+    background-color: #ffffff;
+    align-self: flex-start;
+}
+
+.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    justify-self: end;
+    max-width: 50%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    width: fit-content;
+    display: block;
+}
+.receiver {
+    background-color: #ffffff;
+    align-self: flex-end;
+    justify-self: start;
+    max-width: 50%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    width: fit-content;
+    display: block;
+}
+.sendMsg{
+    display: none;
+}
+
+.sentBtn{
+    display: none;
+}
+
+.message-input {
+    display: flex;
+    padding: 10px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #ddd;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.message-input button {
+    padding: 10px 20px;
+    background-color: #075e54;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.container a{
+    text-decoration: none;
+    color:#fff;
+    padding: 2px;
+    font-size: 1em;
+}
+
+.container a:hover{
+    color:#0c7d70
+}
+
+.red{
+    background-color:  #dcf8c6;
+}
+
+.loginUsername{
+    position: absolute;
+    right: 100px;
+    top :18px;
+    font-size: 0.9em;
+    background-color: #075e54;
+    border: transparent;
+    font-weight: 700;
+    color:#fff;
+}
+
+.receiverName{
+ color: black;
+ background-color:#fff;
+ padding: 10px;
+ display: none;
+ font-weight: 700;
+}
+
+.createGpBtn{
+    position: absolute;
+    right: 200px;
+    top :18px;
+    font-size: 0.9em;
+    background-color: #075e54;
+    border: transparent;
+    font-weight: 700;
+    color:#fff;
+}
+
+.group-create-container {
+    gap: 10px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction:column;
+    right: 100px;
+    display: none;
+  }
+  
+  .groupNameInput {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .groupNameInput:focus {
+    border-color: #007bff;
+  }
+  
+  .finalCreateBtn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .finalCreateBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  ul#userList {
+    list-style: none;
+    padding: 0;
+    max-width: 200px;
+  }
+  
+  ul#userList li {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .inputBtn{
+    display: flex;
+    gap: 10px;
+  }
+
+  .closs:hover {
+    background-color: #0056b3;
+  }
+  .closs {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+
+  .groupName{
+    list-style: none;
+    padding: 10px 0;
+    font-size: 1.em;
+    color: #333;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .groups{
+    position: absolute;
+    right: 325px;
+    top :18px;
+    font-size: 0.9em;
+    background-color: #075e54;
+    border: transparent;
+    font-weight: 700;
+    color:#fff;
+  }
+
+  .grpLi{
+    padding: 10px 0;
+    font-size: 1.em;
+    color: #333;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+
