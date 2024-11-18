@@ -45,7 +45,7 @@ async function createChat(id, name) {
   prevId = id;
   try {
     const userId = { id: id };
-    let result = await fetch("http://localhost:5000/chat/createChat", {
+    let result = await fetch("http://65.0.199.81:5000/chat/createChat", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ async function createChat(id, name) {
 
 async function loginUser() {
   try {
-    let data = await fetch("http://localhost:5000/chat/getUser");
+    let data = await fetch("http://65.0.199.81:5000/chat/getUser");
     if (data) {
       userId = await data.json();
       socket.emit("create-room", userId);
@@ -110,7 +110,7 @@ sentBtn.addEventListener("click", async () => {
       let id = chatId;
       console.log("chatId :",chatId);
       
-      let response = await fetch("http://localhost:5000/chat/message", {
+      let response = await fetch("http://65.0.199.81:5000/chat/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -155,7 +155,7 @@ chat.addEventListener("click", async (e) => {
     let data;
     let result;
     try {
-        data = await fetch("http://localhost:5000/chat/groups");
+        data = await fetch("http://65.0.199.81:5000/chat/groups");
         if (data) {
             result = await data.json();
         }
@@ -176,7 +176,7 @@ chat.addEventListener("click", async (e) => {
             let data = { id: item._id };
             console.log("enter into post");
             
-            let result = await fetch("http://localhost:5000/chat/returnmsg", {
+            let result = await fetch("http://65.0.199.81:5000/chat/returnmsg", {
               method: "post",
               headers: {
                 "Content-Type": "application/json",
@@ -248,7 +248,7 @@ async function startChatWithGroup(id, groupName) {
       socket.emit('GroupChat', { message, usersArray });
       console.log("message send successfully...");
       try {
-        let response = await fetch("http://localhost:5000/chat/groupmsg", {
+        let response = await fetch("http://65.0.199.81:5000/chat/groupmsg", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -270,7 +270,7 @@ async function allReceiver(id) {
   let gpMId ={id : id}
   console.log("id getted to post",id);
   try{
-    let response = await fetch('http://localhost:5000/chat/groupmembers',{
+    let response = await fetch('http://65.0.199.81:5000/chat/groupmembers',{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -301,7 +301,7 @@ async function postGpDtl(groupdetail,groupnm,lUser) {
  console.log(data,"data getted");
  
   try{
-  let response = await fetch('http://localhost:5000/chat/groupChat',{
+  let response = await fetch('http://65.0.199.81:5000/chat/groupChat',{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
