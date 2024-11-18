@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express()
+require('dotenv').config();
 const path = require('path');
 const userRoute = require('./routers/userRoutes');
 const chatRoute = require('./routers/chatRoutes')
@@ -18,7 +19,7 @@ app.use(cookieParser())
 app.use('/',userRoute)
 app.use('/chat',chatRoute)
 
-let server = app.listen(5000,(err)=>{
+let server = app.listen(process.env.PORT,(err)=>{
    if(err){
       console.error(err);
    }else{
