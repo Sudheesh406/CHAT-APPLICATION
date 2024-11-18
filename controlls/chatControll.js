@@ -156,7 +156,7 @@ async function groupReceiver(req, res) {
 async function groupMsgReturn(req,res) {
     let itemId = req.body
     console.log(itemId);
-    let messages = await allMessage.find({chatId:itemId.id})
+    let messages = await allMessage.find({chatId:itemId.id}).populate('senderId', 'username');
     console.log("finded:",messages);
               if(messages){
                   res.status(201).json({id:messages._id,messages})

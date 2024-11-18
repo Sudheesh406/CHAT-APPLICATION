@@ -25,6 +25,9 @@ let prevId = null;
 let chatId;
 
 async function createChat(id, name) {
+  document.getElementById("gpsendMsg").style.display = "none";
+  document.getElementById("gpsentBtn").style.display = "none";
+  document.getElementById('chatBox').innerHTML=''
   if (name) {
     let receiverName = document.getElementById("receiverName");
     receiverName.style.display = " block";
@@ -133,6 +136,7 @@ chat.addEventListener("click", async (e) => {
     let groupBox = document.getElementById("group-create-container"); 
     groupBox.style.display = "none"; 
   }else if (e.target.id === "finalCreateBtn"){
+    document.getElementById('group-create-container').style.display='none';
     let groupNameInput = document.getElementById('groupNameInput').value
 
     if(groupMembers.length >= 2){
@@ -167,6 +171,8 @@ chat.addEventListener("click", async (e) => {
         li.classList.add("grpLi");
         li.innerHTML = "Group: "+item.name;
         li.addEventListener('click',async function() {
+          
+           document.getElementById('chatBox').innerHTML=''
           try {
             let data = { id: item._id };
             console.log("enter into post");
@@ -182,18 +188,18 @@ chat.addEventListener("click", async (e) => {
             if (response) {
                console.log(response);
                response.messages.forEach((msg) => {
-              if(userId.toString() === msg.senderId.toString()){
+              if(userId.toString() === msg.senderId._id.toString()){
                 console.log('true');
                 let chatBox = document.getElementById('chatBox')
                 let li = document.createElement('li')
                 li.classList.add("sent");
-                li.innerHTML= msg.content
+                li.innerHTML= "You: "+msg.content
                 chatBox.appendChild(li)
               }else{
                 let chatBox = document.getElementById('chatBox')
                 let li = document.createElement('li')
                 li.classList.add("receiver");
-                li.innerHTML= msg.content
+                li.innerHTML= msg.senderId.username+":" +msg.content
                 chatBox.appendChild(li)
               }
             }); 
@@ -223,6 +229,10 @@ chat.addEventListener("click", async (e) => {
 });
 
 async function startChatWithGroup(id, groupName) {
+  receiverName.style.display = " block";
+  receiverName.innerHTML = groupName;
+  document.getElementById("sendMsg").style.display = "none";
+  document.getElementById("sentBtn").style.display = "none";
   let gpsentBtn = document.getElementById("gpsentBtn")
   document.getElementById("gpsendMsg").style.display = "block";
   gpsentBtn.style.display = "block";

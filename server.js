@@ -47,16 +47,13 @@ io.on('connection', (socket) => {
        usersArray.forEach(userId => {
            if (io.sockets.adapter.rooms.has(userId)) {
                io.to(userId).emit('groupmsg', { message, sender });
-               console.log(`Group message sent to ${userId}`);
            } else {
                console.log(`User ${userId} is not connected.`);
            }
        });
    });
 
-
-   // socket.on('disconnect', () => {
-   //     console.log('User disconnected:', socket.id);
-   //     // Optionally, remove the user from the room
-   // });
+   socket.on('disconnect', () => {
+       console.log('one user disconnected...')
+   });
 });
