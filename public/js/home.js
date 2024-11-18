@@ -171,7 +171,6 @@ chat.addEventListener("click", async (e) => {
         li.classList.add("grpLi");
         li.innerHTML = "Group: "+item.name;
         li.addEventListener('click',async function() {
-          
            document.getElementById('chatBox').innerHTML=''
           try {
             let data = { id: item._id };
